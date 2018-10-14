@@ -1,0 +1,99 @@
+<br/>
+<div class="container">
+  <div class="row">
+    <div class=" col-md-offset-2 col-md-6">
+      <h2>Template driven forms </h2>
+        <form #frm="ngForm" (ngSubmit)=addUser(frm)>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" ngModel required  pattern="[a-zA-z][a-zA-z]+"
+               #nameUser = "ngModel" />
+              <span class="text-danger" *ngIf='nameUser.touched'>
+                <span *ngIf="nameUser.errors?.required" class="text-danger">
+                   name is required!
+                </span>
+                <span *ngIf="nameUser.errors?.pattern" class="text-danger">
+                    invalid name! 
+                 </span>
+              </span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" 
+                ngModel required #emailUser ="ngModel" pattern="^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$" />
+
+                <span class="text-danger" *ngIf='emailUser.touched'>
+                    <span *ngIf="emailUser.errors?.required" class="text-danger">
+                       email is required!
+                    </span>
+                    <span *ngIf="emailUser.errors?.pattern" class="text-danger">
+                        email is invalid!
+                     </span>
+                  </span>
+            </div>
+              <div class="form-group">
+                  <label for="contact">Contact</label>
+                  <input type="text" class="form-control" name="contact" ngModel required 
+                  #contactUser="ngModel" pattern="[0-9]*" maxlength="10" minlength="10" />
+
+                  <span class="text-danger" *ngIf='contactUser.touched'>
+                      <span *ngIf="contactUser.errors?.required" class="text-danger">
+                         contact is required!
+                      </span>
+                      <span *ngIf="contactUser.errors?.pattern || contactUser.errors?.minlength" class="text-danger">
+                        Contact is invalid!
+                      </span>
+                    </span>
+              </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="text" class="form-control" name="password" ngModel required
+                  #userPass="ngModel" minlength="4" maxlength="8" />
+                  <span class="text-danger" *ngIf="userPass.touched">
+                      <span *ngIf="userPass.errors?.required" class="text-danger">
+                          password is required!
+                       </span>
+                       <span *ngIf="userPass.errors?.minlength" class="text-danger">
+                          must be more than 4 characters
+                       </span>
+                  </span>
+              </div>
+              <div class="form-group">
+                  <label for="confirmPassword">Confirm </label>
+                  <input type="text" class="form-control" name="confirmPassword" ngModel required
+                  #userConfirm="ngModel" minlength="4" maxlength="8" />
+                  <span class="text-danger" *ngIf="userConfirm.touched">
+                      <span *ngIf="userConfirm.errors?.required" class="text-danger">
+                          password is required!
+                       </span>
+                       <span *ngIf="userConfirm.errors?.minlength" class="text-danger">
+                          must be more than 4 characters
+                       </span>
+                       <span *ngIf="userPass.value != userConfirm.value" class="text-danger">
+                         can't match with password!
+                       </span>
+                  </span>
+        
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]='frm.invalid' > Add User </button>
+          </form>
+          {{frm.value | json}}
+    </div>
+
+    <div class="col-md-4">
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+        </tr>
+
+        <tr *ngFor="let u of UserList">
+          <td>{{u.name}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.contact}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
