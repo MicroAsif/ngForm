@@ -14,6 +14,9 @@ import { TemplateDrivenComponent } from './template-driven/template-driven.compo
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CascadingDropdownComponent } from './cascading-dropdown/cascading-dropdown.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '../../node_modules/@angular/router';
+import { AppRoute } from './route';
 
 @NgModule({
    declarations: [
@@ -22,16 +25,21 @@ import { EmployeesComponent } from './employees/employees.component';
       ReactiveFormComponent,
       CascadingDropdownComponent,
       EmployeesComponent,
-      EmployeeComponent
+      EmployeeComponent,
+      HomeComponent
    ],
    imports: [
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
       MaterialModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      RouterModule.forRoot(AppRoute),
    ],
-   providers: [CountryService, EmployeeService],
+   providers: [
+      CountryService,
+      EmployeeService
+   ],
    bootstrap: [
       AppComponent
    ]

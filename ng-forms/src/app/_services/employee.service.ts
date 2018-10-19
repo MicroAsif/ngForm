@@ -36,6 +36,10 @@ form: FormGroup = new FormGroup({
        return [
            new Employee('1', 'asif', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
            new Employee('2', 'hello', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
+           new Employee('2', 'asd', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
+           new Employee('2', 'asd', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
+           new Employee('2', 'asd', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
+           new Employee('2', 'asasdas', 12536, 'asif0531@live.com', 'dhaka', 1, '07/08/1994', '1', false),
         ];
     }
     // addEmployee(emp: Employee) {

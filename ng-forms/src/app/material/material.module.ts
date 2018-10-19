@@ -14,7 +14,10 @@ import * as Material from '@angular/material';
     Material.MatCheckboxModule,
     Material.MatDatepickerModule,
     Material.MatNativeDateModule,
-    Material.MatButtonModule
+    Material.MatButtonModule,
+    Material.MatTableModule,
+    Material.MatIconModule,
+    Material.MatPaginatorModule
   ],
   exports: [
     Material.MatToolbarModule,
@@ -26,7 +29,10 @@ import * as Material from '@angular/material';
     Material.MatCheckboxModule,
     Material.MatDatepickerModule,
     Material.MatNativeDateModule,
-    Material.MatButtonModule
+    Material.MatButtonModule,
+    Material.MatTableModule,
+    Material.MatIconModule,
+    Material.MatPaginatorModule
   ],
   declarations: []
 })
