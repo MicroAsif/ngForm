@@ -1,11 +1,14 @@
+import { CategoryService } from './_services/Category.service';
+import { environment } from './../environments/environment';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeService } from './_services/employee.service';
 import { MaterialModule } from './material/material.module';
 import { CountryService } from './_services/country.service';
-import { PasswordCompareDirective } from './_directive/password-compare.directive';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -17,6 +20,9 @@ import { EmployeesComponent } from './employees/employees.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { AppRoute } from './route';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -26,7 +32,9 @@ import { AppRoute } from './route';
       CascadingDropdownComponent,
       EmployeesComponent,
       EmployeeComponent,
-      HomeComponent
+      HomeComponent,
+      AdminProductComponent,
+      ProductFormComponent
    ],
    imports: [
       BrowserModule,
@@ -35,10 +43,14 @@ import { AppRoute } from './route';
       MaterialModule,
       BrowserAnimationsModule,
       RouterModule.forRoot(AppRoute),
+      AngularFireModule.initializeApp(environment.firebase),
+      AngularFireDatabaseModule,
+      HttpClientModule
    ],
    providers: [
       CountryService,
-      EmployeeService
+      EmployeeService,
+      CategoryService
    ],
    bootstrap: [
       AppComponent

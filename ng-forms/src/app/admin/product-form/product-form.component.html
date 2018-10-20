@@ -1,0 +1,35 @@
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>New product </h3>
+      <div class="col-md-6">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+          <div class="form-group">
+            <label  for="Title">title</label>
+            <input [(ngModel)]="product.Title" name="Title" type="text" id="Title" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Price">price</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input  [(ngModel)]="product.Price" name="Price" id="Price" type="number" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">category</label>
+            <select id="categoryId" [(ngModel)]="product.CategoryId" name="CategoryId" class="form-control">
+              <option value="">Select</option>
+              <option *ngFor='let c of categoryList' [value]='c.Id' >{{c.Name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label  for="imageUrl">imageUrl</label>
+            <input [(ngModel)]="product.ImageUrl" name="ImageUrl" type="text" id="ImageUrl" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary"> Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
