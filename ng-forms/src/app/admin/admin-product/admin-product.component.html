@@ -4,21 +4,26 @@
     <div class="col-md-12">
       <a routerLink="/admin/product/new" class="btn btn-primary">New Product</a>
       <br/> <br/>
-      <table class="table">
+      <p> 
+        <input type="text" placeholder="seeach product" class="form-control"  (keyup)="filter($event.target.value)" />
+      </p>
+       <br/>
+      <table class="table" id="myTable">
         <tr>
           <th>name</th>
           <th>price</th>
           <th>action</th>
         </tr>
-        <tr *ngFor="let p of productList">
+        <tr *ngFor="let p of filterProductList | paginate: { itemsPerPage: 2, currentPage: p }">
             <td>{{p.Title}}</td>
             <td>{{p.Price}}</td>
             <td>
               <a [routerLink]="['/admin/product/', p.Id]" >Edit</a> |  
-              <a (click)="Delete(p.Id)" >Delete</a>
+              <a (click)="Delete(p)" >Delete</a>
             </td>
           </tr>  
       </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>

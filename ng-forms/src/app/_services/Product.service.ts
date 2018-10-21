@@ -16,19 +16,13 @@ getProduct(id) {
   return this.Http.get(this.baseUrl + 'product/' + id);
 }
 addProduct(product) {
-  return this.Http.post(this.baseUrl + 'product', product).subscribe(item  => {
-    console.log(item);
-  });
+  return this.Http.post(this.baseUrl + 'product', product);
 }
 updateProduct(id, product) {
-  return this.Http.put(this.baseUrl + 'product/' + id, product).subscribe(item  => {
-    console.log(item);
-  });
+  return this.Http.put(this.baseUrl + 'product/' + id, product);
 }
 DeleteProduct(Id) {
-  this.Http.delete(this.baseUrl + 'product/' + Id).subscribe(data => {
-    console.log(data);
-  });
+  return this.Http.delete(this.baseUrl + 'product/' + Id);
 }
 
 

@@ -23,6 +23,8 @@ import { AppRoute } from './route';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {ModalModule} from "ngx-modal";
 
 @NgModule({
    declarations: [
@@ -45,7 +47,9 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
       RouterModule.forRoot(AppRoute),
       AngularFireModule.initializeApp(environment.firebase),
       AngularFireDatabaseModule,
-      HttpClientModule
+      HttpClientModule,
+      NgxPaginationModule,
+      ModalModule
    ],
    providers: [
       CountryService,

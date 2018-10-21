@@ -3,6 +3,7 @@ import { CategoryService } from './../../_services/Category.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../../node_modules/@angular/forms';
 import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -43,14 +44,13 @@ export class ProductFormComponent implements OnInit {
   }
 
   save(product) {
-    console.log(product);
+    let result;
     if (this.id) {
-      this.productService.updateProduct(this.id, product);
+     result = this.productService.updateProduct(this.id, product);
     } else {
-      this.productService.addProduct(product);
+      result = this.productService.addProduct(product);
     }
-    this.route.navigate(['/admin/products']);
-
+    result.subscribe(data => this.route.navigate(['/admin/products']));
   }
 
 }

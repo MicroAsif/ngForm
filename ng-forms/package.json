@@ -26,6 +26,8 @@
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
     "firebase": "^5.5.5",
+    "ngx-modal": "0.0.29",
+    "ngx-pagination": "^3.2.1",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
