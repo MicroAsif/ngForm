@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { Component } from '@angular/core';
 import { CascadingDropdownComponent } from './cascading-dropdown/cascading-dropdown.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 export const AppRoute: Routes = [
@@ -25,6 +26,10 @@ export const AppRoute: Routes = [
     {
         path: 'reactive',
         component: ReactiveFormComponent
+    },
+    {
+        path : 'booking',
+        component : BookingComponent
     },
     {
         path : 'admin/product/new',

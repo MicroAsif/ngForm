@@ -24,7 +24,9 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {ModalModule} from "ngx-modal";
+import {ModalModule} from 'ngx-modal';
+import { BookingComponent } from './booking/booking.component';
+import {BsDatepickerModule } from 'ngx-bootstrap';
 
 @NgModule({
    declarations: [
@@ -36,7 +38,8 @@ import {ModalModule} from "ngx-modal";
       EmployeeComponent,
       HomeComponent,
       AdminProductComponent,
-      ProductFormComponent
+      ProductFormComponent,
+      BookingComponent
    ],
    imports: [
       BrowserModule,
@@ -49,7 +52,8 @@ import {ModalModule} from "ngx-modal";
       AngularFireDatabaseModule,
       HttpClientModule,
       NgxPaginationModule,
-      ModalModule
+      ModalModule,
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       CountryService,
