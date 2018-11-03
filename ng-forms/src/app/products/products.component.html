@@ -1,0 +1,31 @@
+<br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div data-spy="affix" data-offset-top="100">
+        <ul class="list-group list-group-full">
+
+            <li class="list-group-item" 
+            [class.active]="!category"
+            routerLink="/product-catalog"  >
+                <a  [class.category-active]="!category"> <i class="mdi mdi-calendar"></i>All Categories</a>
+            </li>
+            <li class="list-group-item" *ngFor="let item of categories" 
+            [class.active]="category === item.Name"
+            routerLink="/product-catalog" [queryParams]="{category : item.Name}" >
+                <a  [class.category-active]="category === item.Name"> <i class="mdi mdi-calendar"></i> {{item.Name}}</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="col-md-9">
+      <div class="col-md-4 column productbox" *ngFor="let item of filteredProducts">
+        <img src="{{item.ImageUrl}}" class="img-responsive">
+        <div class="producttitle">{{item.Title}}</div>
+        <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">$ {{item.Price}}</div></div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+</div>

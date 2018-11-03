@@ -27,6 +27,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {ModalModule} from 'ngx-modal';
 import { BookingComponent } from './booking/booking.component';
 import {BsDatepickerModule } from 'ngx-bootstrap';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
    declarations: [
@@ -39,7 +40,8 @@ import {BsDatepickerModule } from 'ngx-bootstrap';
       HomeComponent,
       AdminProductComponent,
       ProductFormComponent,
-      BookingComponent
+      BookingComponent,
+      ProductsComponent
    ],
    imports: [
       BrowserModule,
@@ -48,7 +50,6 @@ import {BsDatepickerModule } from 'ngx-bootstrap';
       MaterialModule,
       BrowserAnimationsModule,
       RouterModule.forRoot(AppRoute),
-      AngularFireModule.initializeApp(environment.firebase),
       AngularFireDatabaseModule,
       HttpClientModule,
       NgxPaginationModule,

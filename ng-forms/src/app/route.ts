@@ -1,3 +1,4 @@
+import { ProductsComponent } from './products/products.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
@@ -30,6 +31,10 @@ export const AppRoute: Routes = [
     {
         path : 'booking',
         component : BookingComponent
+    },
+    {
+        path: 'product-catalog',
+        component : ProductsComponent
     },
     {
         path : 'admin/product/new',
